@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon Replica - Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: pink;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .login-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 300px;
+        }
+        .login-logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .login-logo img {
+            width: 100px;
+        }
+        .login-form input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .login-form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #f0c14b;
+            border: 1px solid #a88734;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .login-form button:hover {
+            background-color: #ddb347;
+        }
+        .login-help {
+            margin-top: 15px;
+            font-size: 12px;
+        }
+        .login-new {
+            text-align: center;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+        }
+        .login-new button {
+            width: 100%;
+            padding: 8px;
+            background-color: #e7e9ec;
+            border: 1px solid #adb1b8;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon Logo">
+        </div>
+        <form class="login-form" id="loginForm">
+            <h1>Sign in</h1>
+            <label >Email or mobile phone number</label>
+            <input type="text" id="email" name="email" required>
+            
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+            
+            <button type="submit">Continue</button>
+            
+            <div class="login-help">
+                <p>By continuing, you agree to Amazon's <a href="#">Conditions of Use</a> and <a href="#">Privacy Notice</a>.</p>
+            </div>
+        </form>
+        
+        <div class="login-new">
+            <p>New to Amazon?</p>
+            <button id="createAccount">Create your Amazon account</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            // Basic validation
+            if (!email || !password) {
+                alert('Please enter both email and password');
+                return;
+            }
+            
+            // Here you would typically send data to the backend
+            console.log('Login attempt with:', { email, password });
+            
+            // For demo purposes, just redirect to home page
+            // In a real app, you would wait for authentication response
+            window.location.href = 'index.html'; // Change to your home page
+        });
+        
+        document.getElementById('createAccount').addEventListener('click', function() {
+            window.location.href = 'register.html'; // Change to your registration page
+        });
+    </script>
+</body>
+</html>
